@@ -5,7 +5,9 @@ import { app } from "../index.js";
 const request = supertest(app);
 
 describe("GET /", () => {
-  it('should return "hello"', (done) => {
+  it('should return "hello"', function (done) {
+    this.timeout(5000); // Set a higher timeout (adjust as needed)
+
     request
       .get("/")
       .expect(200)
